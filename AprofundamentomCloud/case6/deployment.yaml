@@ -1,0 +1,22 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stateless-app
+  labels:
+    app: stateless-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: stateless-app
+  template:
+    metadata:
+      labels:
+        app: stateless-app
+    spec:
+      containers:
+      - name: stateless-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
